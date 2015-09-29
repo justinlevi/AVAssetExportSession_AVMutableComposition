@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     let videoAsset = AVURLAsset(URL: NSBundle.mainBundle().URLForResource("sample", withExtension: "m4v")!)
-    let audioAsset1 = AVURLAsset(URL: NSBundle.mainBundle().URLForResource("audio1", withExtension: "m4a")!)
+    let audioAsset1 = AVURLAsset(URL: NSBundle.mainBundle().URLForResource("sample", withExtension: "m4a")!)
     let audioAsset2 = AVURLAsset(URL: NSBundle.mainBundle().URLForResource("audio2", withExtension: "m4a")!)
     
     let comp = AVMutableComposition()
@@ -41,10 +41,12 @@ class ViewController: UIViewController {
     
     do {
     
-      try videoCompositionTrack.insertTimeRange(
-        CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(10, 600)),
-        ofTrack: videoAssetSourceTrack,
-        atTime: kCMTimeZero)
+//      try videoCompositionTrack.insertTimeRange(
+//        CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(10, 600)),
+//        ofTrack: videoAssetSourceTrack,
+//        atTime: kCMTimeZero)
+      
+      
       
       try audioCompositionTrack.insertTimeRange(
         CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(7, 600)),
@@ -54,7 +56,7 @@ class ViewController: UIViewController {
       try audioCompositionTrack.insertTimeRange(
         CMTimeRangeMake(kCMTimeZero, CMTimeMakeWithSeconds(3, 600)),
         ofTrack: audioAssetSourceTrack2,
-        atTime: CMTimeMakeWithSeconds(3, 600))
+        atTime: CMTimeMakeWithSeconds(7, 600))
     
     }catch { print(error) }
     
